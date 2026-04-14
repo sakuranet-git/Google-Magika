@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SAKURA Security Monitor v1.2.0
+SAKURA Security Monitor v1.3.0
 Development ディレクトリの常駐監視 + Downloads ダウンロード即時スキャン + 自動アップデート
 """
 
@@ -19,11 +19,32 @@ from magika import Magika
 from win11toast import notify as win11_notify
 
 # ===== 設定 =====
-WATCH_DEV = Path(r"C:\Users\MYPC\Development")
-WATCH_DL  = Path(r"C:\Users\MYPC\Downloads")
-LOG_FILE  = Path(r"C:\Users\MYPC\Development\CTO\google-magika\security_report.txt")
 APP_NAME  = "SAKURA Security Monitor"
-VERSION   = "1.2.0"
+VERSION   = "1.3.0"
+
+# スクリプトと同じフォルダの config.json を読み込む
+_BASE_DIR = Path(__file__).resolve().parent
+_CONFIG_FILE = _BASE_DIR / "config.json"
+
+def _load_config() -> dict:
+    """config.json からパス設定を読み込む。なければデフォルト値を使用。"""
+    defaults = {
+        "watch_dir": str(Path.home() / "Documents"),
+        "log_dir":   str(_BASE_DIR),
+    }
+    if _CONFIG_FILE.exists():
+        try:
+            with open(_CONFIG_FILE, encoding='utf-8') as f:
+                data = json.load(f)
+            defaults.update(data)
+        except Exception:
+            pass
+    return defaults
+
+_cfg     = _load_config()
+WATCH_DEV = Path(_cfg["watch_dir"])
+WATCH_DL  = Path.home() / "Downloads"
+LOG_FILE  = Path(_cfg["log_dir"]) / "security_report.txt"
 
 # スキップするディレクトリ名
 EXCLUDE_DIRS = {

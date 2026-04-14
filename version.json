@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "release_date": "2026-04-14",
-  "changelog": "自動アップデート機能追加"
+  "changelog": "config.json対応・インストーラー追加"
 }
