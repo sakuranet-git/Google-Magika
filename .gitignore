@@ -1,0 +1,5 @@
+security_report.txt
+*.bak
+*.tmp.*
+start_monitor.bat
+__pycache__/
