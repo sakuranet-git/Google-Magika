@@ -302,8 +302,8 @@ class DownloadsHandler(FileSystemEventHandler):
 
 
 # ===== 自動アップデート =====
-UPDATE_VERSION_URL = "https://raw.githubusercontent.com/sakuranet-git/Google-Magika/main/version.json"
-UPDATE_SCRIPT_URL  = "https://raw.githubusercontent.com/sakuranet-git/Google-Magika/main/security_monitor.py"
+UPDATE_VERSION_URL = "https://raw.githubusercontent.com/sakuranet-git/Google-Magika/master/version.json"
+UPDATE_SCRIPT_URL  = "https://raw.githubusercontent.com/sakuranet-git/Google-Magika/master/security_monitor.py"
 SCRIPT_PATH = Path(__file__).resolve()
 
 

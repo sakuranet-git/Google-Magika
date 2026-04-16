@@ -9,7 +9,7 @@ echo.
 
 REM ===== インストール先 =====
 set "INSTALL_DIR=%LOCALAPPDATA%\SAKURA-Security"
-set "GITHUB_RAW=https://raw.githubusercontent.com/sakuranet-git/Google-Magika/main"
+set "GITHUB_RAW=https://raw.githubusercontent.com/sakuranet-git/Google-Magika/master"
 
 REM ===== Python チェック =====
 echo [1/6] Python を確認中...
